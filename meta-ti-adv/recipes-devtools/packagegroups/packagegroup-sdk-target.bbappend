@@ -1,0 +1,5 @@
+
+RDEPENDS:${PN}:remove = " \
+   diffutils"
+
+
