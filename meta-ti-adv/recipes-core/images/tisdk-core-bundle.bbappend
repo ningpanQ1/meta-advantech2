@@ -3,6 +3,10 @@ ADDON_MK_EMMC_DIR:="${THISDIR}/files/mk_emmc"
 
 TARGET_IMAGES += " initramfs-debug-image "
 
+DEPLOY_IMAGES_NAME:append:am335xepcr3220a1 = " \
+	extlinux.conf \
+"
+
 tisdk_add_mkemmc_script() {
         install -m 0755 ${ADDON_MK_EMMC_DIR}/* ${IMAGE_ROOTFS}/bin  
 

@@ -233,19 +233,19 @@ index 654946f..6e19112 100644
 +################################################################################
 +
 +EOM
-+               ls $PARSEPATH/filesystem/ | grep "initramfs.*debug" | grep 'cpio.gz' | grep -n '' | awk {'print "	" , $1'}
++               ls $PARSEPATH/filesystem/$platform/ | grep "initramfs.*debug" | grep 'cpio.gz' | grep -n '' | awk {'print "	" , $1'}
 +               echo ""
 +               read -p "Enter Number of rootfs Tarball: " TARNUMBER
 +               echo " "
-+               FOUNDTARFILENAME=`ls $PARSEPATH/filesystem/ | grep "initramfs.*debug" | grep 'cpio.gz' | grep -n '' | grep "${TARNUMBER}:" | cut -c3- | awk {'print$1'}`
++               FOUNDTARFILENAME=`ls $PARSEPATH/filesystem/$platform/ | grep "initramfs.*debug" | grep 'cpio.gz' | grep -n '' | grep "${TARNUMBER}:" | cut -c3- | awk {'print$1'}`
 +               INITRAMFS=$FOUNDTARFILENAME
 +
 +       else
-+               INITRAMFS=`ls  $PARSEPATH/filesystem/ | grep "initramfs.*debug" | grep 'cpio.gz' | awk {'print $1'}`
++               INITRAMFS=`ls  $PARSEPATH/filesystem/$platform/ | grep "initramfs.*debug" | grep 'cpio.gz' | awk {'print $1'}`
 +       fi
 +
-+       INITRAMFSUSERFILEPATH=$PARSEPATH/filesystem/$INITRAMFS
-+       sudo cp $PARSEPATH/filesystem/*.cpio.gz $START_DIR/initramfstmp
++       INITRAMFSUSERFILEPATH=$PARSEPATH/filesystem/$platform/$INITRAMFS
++       sudo cp $PARSEPATH/filesystem/$platform/*.cpio.gz $START_DIR/initramfstmp
 +       cd $START_DIR/initramfstmp
 +       zcat *.cpio.gz | cpio -idmv  > /dev/zero 2>&1
 +       sync

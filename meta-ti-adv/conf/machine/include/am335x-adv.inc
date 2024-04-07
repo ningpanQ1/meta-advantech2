@@ -1,36 +1,30 @@
 
-IMAGE_INSTALL += "\
-   linux-firmware-bcm43241b4 "
-
-IMAGE_INSTALL += "\
-   ppp"
+IMAGE_INSTALL:append = " ppp "
 
 
 # timezone
-IMAGE_INSTALL += "\
-   tzdata"
+IMAGE_INSTALL:append = " tzdata "
 
 # minicom
-IMAGE_INSTALL += "\
-   minicom"
+IMAGE_INSTALL:append = " minicom "
 
-IMAGE_INSTALL += "\
+IMAGE_INSTALL:append = " \
    cmake \
    mosquitto-clients mosquitto mosquitto-dev \
    libxml2 libxml2-dev \
    git-perltools \
-   openobex obexd \
+   openobex \
    openobex-dev \
-   python-pybluez \
-   "
-TOOLCHAIN_TARGET_TASK += "\
+   python3-pybluez \
+"
+TOOLCHAIN_TARGET_TASK:append = " \
    cmake \
    git git-perltools \
    curl curl-dev \
    mosquitto-clients mosquitto mosquitto-dev \
    libxml2 libxml2-dev \
    linux-libc-headers-dev \
-   openobex obexd \
+   openobex \
    glibc-staticdev \
 "
 
