@@ -14,7 +14,8 @@ SRC_URI = "file://storage-gadget-init.service \
 
 inherit systemd
 
-SYSTEMD_SERVICE:{PN} = "storage-gadget-init.service"
+SYSTEMD_SERVICE:${PN} = "storage-gadget-init.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 do_install() {
     install -d ${D}${bindir}
