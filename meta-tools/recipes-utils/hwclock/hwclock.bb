@@ -6,7 +6,7 @@ SRC_URI = "file://hwclock.sh \
 	   file://hwclock.service"
 
 inherit systemd
-RDEPENDS_${PN} += "bash"
+RDEPENDS:${PN} += "bash"
 
 do_install() {
     install -d ${D}/tools
