@@ -2,6 +2,11 @@
 # Suitable for initramfs
 
 IMAGE_INSTALL:remove = " libxmu "
+IMAGE_FSTYPES:remove = " \
+	wic.xz \
+	wic.bmap \
+"
+
 ADDON_TEST_FILES_DIR:="${THISDIR}/files/tests"
 ADDON_3G_PROVIDER_DIR:="${THISDIR}/files/peers"
 ADDON_MRVL_FW_DIR:="${THISDIR}/files/mrvl"
@@ -60,6 +65,6 @@ add_wifi_relink() {
 	install -m 0644 ${WIFI_RELINK_DIR}/wpa.conf ${IMAGE_ROOTFS}/etc/wifi
 }
 
-ROOTFS_POSTPROCESS_COMMAND:append:ti33x = "add_test_tools;add_3G_provider;add_mrvl_fw;modify_fstab;modify_modules_load_service;add_4G_to_Lan;add_Lan_to_Wifi;add_system_backup;add_wifi_relink;"
+ROOTFS_POSTPROCESS_COMMAND:append:ti33x = "add_test_tools;add_3G_provider;add_mrvl_fw;modify_modules_load_service;add_4G_to_Lan;add_Lan_to_Wifi;add_system_backup;add_wifi_relink;"
 
 
