@@ -1,10 +1,7 @@
 # Arago TI SDK base image with test tools
 # Suitable for initramfs
 
-IMAGE_INSTALL += " ota-script "
 IMAGE_INSTALL:remove = " libxmu "
-OTA_CONFIGS_DIR:="${THISDIR}/files"
-CACHE_PARTITION = "/dev/disk/by-label/cache"
 
 ADDON_TEST_FILES_DIR:="${THISDIR}/files/tests"
 ADDON_3G_PROVIDER_DIR:="${THISDIR}/files/peers"
@@ -21,6 +18,7 @@ add_test_tools() {
 	install -m 0755 ${ADDON_TEST_FILES_DIR}/obexpushd ${IMAGE_ROOTFS}/usr/sbin
 	install -m 0755 ${ADDON_TEST_FILES_DIR}/ussp-push ${IMAGE_ROOTFS}/usr/sbin
 	install -m 0755 ${ADDON_TEST_FILES_DIR}/wwatb ${IMAGE_ROOTFS}/usr/sbin
+	install -m 0755 ${ADDON_TEST_FILES_DIR}/uart-mode-config.sh ${IMAGE_ROOTFS}/usr/sbin
 }
 
 add_3G_provider() {
