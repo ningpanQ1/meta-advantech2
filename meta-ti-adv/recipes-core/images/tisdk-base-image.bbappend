@@ -60,6 +60,6 @@ add_wifi_relink() {
 	install -m 0644 ${WIFI_RELINK_DIR}/wpa.conf ${IMAGE_ROOTFS}/etc/wifi
 }
 
-ROOTFS_POSTPROCESS_COMMAND:append:ti33x = "add_test_tools;add_3G_provider;add_mrvl_fw; modify_modules_load_service; add_4G_to_Lan; add_Lan_to_Wifi; add_system_backup;add_wifi_relink;"
+ROOTFS_POSTPROCESS_COMMAND:append:ti33x = "add_test_tools;add_3G_provider;add_mrvl_fw; modify_modules_load_service; add_4G_to_Lan; add_Lan_to_Wifi; add_wifi_relink;"
 
 

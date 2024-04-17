@@ -14,9 +14,9 @@ do_install:append() {
         install -m 755 ${WORKDIR}/adv-ota_TI.sh ${D}/tools/adv-ota.sh
     fi
 
-    if [ -e ${WORKDIR}/adv-backup.sh ] ; then
-        install -m 755 ${WORKDIR}/adv-backup.sh ${D}/tools/adv-backup.sh
-    fi
+#    if [ -e ${WORKDIR}/adv-backup.sh ] ; then
+#        install -m 755 ${WORKDIR}/adv-backup.sh ${D}/tools/adv-backup.sh
+#    fi
 
 }
 
